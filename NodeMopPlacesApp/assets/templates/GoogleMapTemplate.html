@@ -1,0 +1,60 @@
+<div class="container">
+    <h3>Places</h3>
+    <label>Search: <input ng-model="searchText" placeholder="search places"></label> 
+    <div ng-controller="MapController as mapCtrl">
+        <div class="col-md-6">
+            <div id="googleMap" style="width:500px;height:380px;"></div>        
+        </div>    
+        <form novalidate="novalidate">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="usr">Name:</label>
+                    <input type="text" class="form-control" id="usr" ng-model="mapCtrl.name"
+                           ng-minlength="1" ng-maxlength="10" ng-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Description:</label>
+                    <input type="text" class="form-control" id="pwd" ng-model="mapCtrl.description"
+                           ng-minlength="1" ng-maxlength="20" ng-required="true">
+                </div>
+                <div class="form-group">
+                    <select ng-model="mapCtrl.category" class="col-md-7" title="Category" style="height:35px">
+                    <option value="Food">Food</option>
+                    <option value="Clubs">Clubs</option>
+                    <option value="Bars">Bars</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <div class="col-md-6">
+            <br />
+            <br />
+            <button ng-click="mapCtrl.saveCoord()" class="btn btn-default" style="width:138px">Save Place</button>
+            <button ng-click="mapCtrl.clear()" class="btn btn-default" style="width:138px">Delete Markers</button>
+        </div>
+        <div class="col-md-6">
+            <br />
+            <br />
+            <button class="btn btn-default" ng-click="mapCtrl.getFood(); mapCtrl.clear(); show = !show" style="width:92px">Food</button>
+            <button class="btn btn-default" ng-click="mapCtrl.getClubs(); mapCtrl.clear(); show1 = !show1" style=" width:92px">Clubs</button>
+            <button class="btn btn-default" ng-click="mapCtrl.getBars(); mapCtrl.clear(); show2 = !show2" style=" width:92px">Bars</button>
+            <br />
+            <br />
+            <div>
+                <ul>
+                    <li class="card" ng-repeat="food in mapCtrl.food | filter:searchText" ng-show="show"><img src="/images/FoodAndDrinks2.jpg" />{{food.name}}: {{food.description}}</li>
+                </ul>
+            </div>
+            <div>
+                <ul>                
+                    <li class="card" ng-repeat="bars in mapCtrl.bars | filter:searchText" ng-show="show2"><img src="/images/bar1.jpg" />{{bars.name}}: {{bars.description}}</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="card" id="card-content" ng-repeat="clubs in mapCtrl.clubs | filter:searchText" ng-show="show1"><img src="/images/club1.jpg" />{{clubs.name}}: {{clubs.description}}</li>
+                </ul>
+            </div>
+        </div>
+    </div> 
+</div>

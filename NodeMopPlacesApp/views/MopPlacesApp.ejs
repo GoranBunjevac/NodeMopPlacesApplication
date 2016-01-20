@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="MopPlacesApp">
+<!--STYLES-->
+<link rel="stylesheet" href="/styles/Site.css">
+<link rel="stylesheet" href="/styles/angular-growl.min.css">
+<link rel="stylesheet" href="/styles/bootstrap.css">
+<link rel="stylesheet" href="/styles/importer.css">
+<!--STYLES END-->
+<head>
+    <title>MopPlaces</title>
+</head>
+<body>
+<!--SCRIPTS-->
+<script src="/js/dependencies/sails.io.js"></script>
+<script src="/js/dependencies/angular.js"></script>
+<script src="/js/dependencies/angular-resource.js"></script>
+<script src="/js/dependencies/angular-growl.min.js"></script>
+<script src="/js/dependencies/jcs-auto-validate.min.js"></script>
+<script src="/js/public/MopPlaces/GoogleMapModule.js"></script>
+<script src="/js/public/MopPlaces/GoogleMapApp.js"></script>
+<script src="/js/public/MopPlaces/GoogleMapController.js"></script>
+<script src="/js/public/MopPlaces/GoogleMapDirective.js"></script>
+<script src="/js/public/MopPlaces/GoogleMapService.js"></script>
+<!--SCRIPTS END-->
+
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <mop-places-directive></mop-places-directive>
+        <div growl></div>
+</body>
+</html>
