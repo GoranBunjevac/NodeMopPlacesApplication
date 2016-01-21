@@ -1,6 +1,6 @@
 ####MopPlaces Application
 
-Small project where you can add Bars, Clubs, or Food-places with Google maps. You add name, description and category, coordinates are adding automaticaly. There is also search places feature and filters where you can see a list of your bars, clubs or food places.
+Small project where you can add Bars, Clubs, or Food-places with Google maps. You add name, description and category, coordinates are added automaticaly. There is also search places feature and filters where you can see a list of your bars, clubs or food places.
 
 Technologies used:
 
