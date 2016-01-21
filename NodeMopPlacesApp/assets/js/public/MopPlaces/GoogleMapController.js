@@ -41,8 +41,10 @@
                     myplaces[count] = GoogleApi;
 
                 }
+              
                 count++;
             });
+              
         }
       
         // geocoding tranlating Lon and Lat into Adress and adding marker
@@ -63,8 +65,11 @@
 
         // function for coordinates save
         function saveCoord() {
+            if(myplaces.length <= 0){
+                growl.warning("Marker not added !");
+            }
             
-            if (myplaces.length > 0) {
+           else if (myplaces.length > 0) {
                 var place = {
                     Name: self.name,
                     Category: self.category,
@@ -72,27 +77,32 @@
                     Long: myplaces[0].Long,
                     Lati: myplaces[0].Lati
                 }
-
                 data = JSON.stringify(place);
+                console.log(place);
+                console.log(data);
+                console.log(myplaces);
 
-                if (place.Category == null || place.Name == null || place.Description == null ) {
+                if (place.Category == null || place.Name == null || place.Description == null) {
                     growl.error("Name, Description or Category not added !");
                 } else {
                     $http.post(url = "/GoogleMap/create", data
                ).then(function (response) {
-                   growl.success("Location successfully saved !");
                    myplaces = []
-                   //console.log(place);
-                    console.log(data.name);
+                   //growl.warning("Location successfully saved !");
+                   console.log(place);
+                    //console.log(data);
+                    //growl.info("Location saved !");
 
                }, function (error) {
                    console.log(error);
                    myplaces = []
                });
+                growl.success("Location successfully saved !");
                 }
               
             }
         }
+            
 
         
         //delete marker
@@ -103,6 +113,7 @@
             markers = [];
             myplaces = [];
             count = 0;
+            //growl.success("Markers successfully deleted !")
         }
 
 
@@ -118,7 +129,6 @@
         function getFood() {
             $http.get("/GoogleMap/find").then(function (response) {
                 self.food = response.data;
-                console.log(response.data);
                 //add markers for all food places
                 angular.forEach(self.food, function (value, key) {
                     geocodeLatLng(event.latLng);
