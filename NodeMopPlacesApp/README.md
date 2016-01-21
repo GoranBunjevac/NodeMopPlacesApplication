@@ -6,7 +6,7 @@ Technologies used:
 
  1. **Back-end:** Node.js, Sails.js as MVC pattern
 
- 2. **Database:** MongoDB,
+ 2. **Database:** MongoDB (Mongoose as object modelig tool),
 
  3. **Front-end:** AngularJS, HTML5, Bootstrap and CSS
 
